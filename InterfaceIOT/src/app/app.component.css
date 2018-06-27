@@ -1,0 +1,11 @@
+.title {
+	text-align:center; 
+}
+.left_panel {
+	/*float: left;*/
+	background-color: #bdcd3b8b;
+}
+.main_panel {
+	/*float: right;*/
+	background-color: #bdcd3b8b;
+}

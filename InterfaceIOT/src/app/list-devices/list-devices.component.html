@@ -1,0 +1,8 @@
+<h2>My Devices</h2>
+<ul class="devices">
+  <li *ngFor="let device of devices"
+    [class.selected]="device === selectedDevice"
+    (click)="onSelect(device)">
+    <span class="badge">{{device.address_mac}}</span> {{device.name}}
+  </li>
+</ul>
