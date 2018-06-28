@@ -55,10 +55,6 @@ export class Geometry {
 	* out: angle (radian)
 	*/
 	static angle(segment1:Segment, segment2:Segment):number{
-		console.log("segment1")
-		console.log(segment1);
-		console.log("segment2")
-		console.log(segment2.vectorize().getY());
 		return segment2.vectorize().getY() >=0 ? Math.acos(Geometry.dot_product(segment1, segment2)) : -Math.acos(Geometry.dot_product(segment1, segment2)) ;
 	}
 	/**

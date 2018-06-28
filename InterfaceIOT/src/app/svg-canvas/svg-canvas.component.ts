@@ -105,12 +105,7 @@ export class SvgCanvasComponent implements OnInit {
 		this.disp_arc = false;
 		this.draw();
 	}
-	/*
-	approximate(){
-		this.approximation = true;
-		this.draw();
-	}
-	*/
+
 	compute_curve_points(control_points: Point2D[], nb_points:number):Point2D[]{
 		let points: Point2D[] = [];
 		let t: number[] = [];
@@ -136,30 +131,28 @@ export class SvgCanvasComponent implements OnInit {
 		// input : 3 points
 		// output : position taille rayon
 		// rayon = corde²/(8*fleche) + fleche/2
-		console.log("compute one arc : ")
-		console.log(A)
-		console.log(B)
-		console.log(C)
 		let ac:Segment = new Segment(A,C);
 		let hd:Segment = Geometry.rotation(new Segment(Geometry.middle(ac), C), -Math.PI/2);
 		let hb:Segment = new Segment(Geometry.middle(ac), B);
 		let alpha = Geometry.angle(hd,hb);
 		let x:Segment = new Segment(new Point2D(0,0), new Point2D(100,0));
 		let theta = Geometry.angle(x, hd);
-		console.log("angle");
-		console.log(theta*180/Math.PI)
-		// determiner la position du centre c et retourner l'angle AcC
 		
 		let corde = Geometry.norm(ac);
 		let fleche = Geometry.norm(hb)*Math.cos(alpha);
 		
 		let nrayon = (Math.pow(corde,2) / (8*fleche)) + fleche/2;
-		console.log("rayon")
-		console.log(nrayon)
+
 		let mid_arc:Point2D = new Point2D(Geometry.middle(ac).getX()+Math.floor(fleche*Math.cos(theta)), Geometry.middle(ac).getY()+Math.floor(fleche*Math.sin(theta)));
 		
 		let centre:Point2D = new Point2D(mid_arc.getX()-Math.floor(nrayon*Math.cos(theta)), mid_arc.getY()-Math.floor(nrayon*Math.sin(theta)));
-		console.log(centre);
+		
+
+	    let angle:number = Geometry.angle(new Segment(centre,A), new Segment(centre,C));
+/*
+		let f:Segment = new Segment(Geometry.middle(ac), new Point2D(Geometry.middle(ac).getX()+Math.abs(fleche),Geometry.middle(ac).getY()));
+		f=Geometry.rotation(f,Geometry.angle(f,ac)-Math.PI/2);
+
 		d3.select('g')
 	  		.append('circle')
 	    		.attr('cx', mid_arc.getX())
@@ -172,11 +165,6 @@ export class SvgCanvasComponent implements OnInit {
 	      		.attr('cy', centre.getY())
 	      		.attr('r', 1)
 	      		.attr('fill', 'green')
-
-	    let angle:number = Geometry.angle(new Segment(centre,A), new Segment(centre,C));
-/*
-		let f:Segment = new Segment(Geometry.middle(ac), new Point2D(Geometry.middle(ac).getX()+Math.abs(fleche),Geometry.middle(ac).getY()));
-		f=Geometry.rotation(f,Geometry.angle(f,ac)-Math.PI/2);
 
 		d3.select('g')
         	.append('line')
@@ -241,7 +229,6 @@ export class SvgCanvasComponent implements OnInit {
 			this.str_cmd += "T:1:1:"+Math.floor(radius[i])+":"+Math.floor(Math.abs(angles[i])*180/Math.PI)+"|";
 		}
 		this.str_cmd += "UP"
-		console.log(this.str_cmd);
 	}
 	
   	
