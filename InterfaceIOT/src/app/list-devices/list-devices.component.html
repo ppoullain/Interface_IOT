@@ -1,8 +1,17 @@
-<h2>My Devices</h2>
+<h2>Liste objects connectés</h2>
+<button type="button" class="btn" disabled>Recherche ...</button> 
 <ul class="devices">
-  <li *ngFor="let device of devices"
-    [class.selected]="device === selectedDevice"
-    (click)="onSelect(device)">
-    <span class="badge">{{device.address_mac}}</span> {{device.name}}
+  <li *ngFor="let device of devices">
+  	<div class="row">
+  		<div class="col-4">
+  			{{device.name}}
+  		</div>
+  		<div class="col">
+  			<img src={{device.img_src}} height="30px">
+  		</div>
+  		<div class="col">
+  			<button type="button" class="btn" disabled=""> <img src="../assets/settings.svg" height="30px"> </button>
+  		</div>
+  	</div>
   </li>
 </ul>

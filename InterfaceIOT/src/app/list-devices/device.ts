@@ -9,4 +9,5 @@ export class Device {
   name: string;
   type: Connection_Type;
   connected: boolean;
+  img_src:string;
 }
