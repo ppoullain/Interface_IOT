@@ -1,0 +1,34 @@
+<div id="list-device-container" class="container">
+	<div class="row">
+		<button type="button" class="btn" aria-controls="collapseExample"
+			(click)="isCollapsed = !isCollapsed" 
+			[attr.aria-expanded]="!isCollapsed">
+			<ng-container
+			  *ngIf="isCollapsed; then arrowUp; else arrowDown">
+			</ng-container>
+			<ng-template #arrowUp>
+			  <img src="../assets/arrow-down.svg" height="10px">
+			</ng-template>
+			<ng-template #arrowDown>
+			  <img src="../assets/arrow-up.svg" height="10px">
+			</ng-template>
+		</button>
+	</div>
+	<div id="collapseExample" [ngbCollapse]="isCollapsed">
+		<div class="row">
+			<h4>Liste objects connectés</h4>
+		</div>
+		<div class="row">
+			<button type="button" class="btn" (click)="onScan()">Recherche ...</button> 
+		</div>
+		<div class="row">
+			<ul class="list-group">
+			  <li *ngFor="let device of devices" class="list-group-item">
+			  	<!-- <div class="row"> -->
+			  		<app-device [device]="device"></app-device>
+			  	<!-- </div> -->
+			  </li>
+			</ul>
+		</div>
+	</div>
+</div>

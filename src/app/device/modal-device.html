@@ -1,0 +1,36 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Configuration de l'appareil {{device.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <span style="padding: 1em"> L'appareil est :</span> 
+      <ng-container
+        *ngIf="this.device.connection.connected; then connected; else disconnected">
+      </ng-container>
+      <ng-template #connected> 
+          <span style="padding: 1em"> <strong>connecté</strong> </span> 
+          <button type="button" class="btn" (click)="onDisconnect()">Déconnecter</button>
+      </ng-template>
+      <ng-template #disconnected> 
+          <span style="padding: 1em"> <strong>déconnecté</strong> </span> 
+          <button type="button" class="btn" (click)="onConnect()">Connecter</button>
+      </ng-template>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Enregistrer</button>
+  </div>
+</ng-template>
+
+<button type="button" 
+        class="btn" 
+        (click)="open(content)"> 
+        <img src="../assets/settings.svg" height="30px"> 
+</button>
+<!-- <hr> -->
+
+<!-- <pre>{{closeResult}}</pre> -->

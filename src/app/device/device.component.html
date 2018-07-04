@@ -1,0 +1,14 @@
+<li class="list-group-item">
+	<div class="row">
+		<div class="col-6">
+	  		<h6>{{ device.name }}</h6> <small>{{ device.mac_address }}</small>
+		</div>
+		<div class="col-2">
+			<img src={{device.connection.img}} height="30px">
+		</div>
+		<div class="col-2"> 
+			<!-- <button type="button" class="btn"> <img src="../assets/settings.svg" height="30px"> </button> -->
+			<ngbd-modal-basic [device]="device"></ngbd-modal-basic>
+		</div>
+	</div>
+</li>  
