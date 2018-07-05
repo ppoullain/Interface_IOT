@@ -20,7 +20,24 @@
           <button type="button" class="btn" (click)="onConnect()">Connecter</button>
       </ng-template>
     </div>
+
+    <div class="row" *ngIf="this.device.name == 'Robot Dessinateur'">
+      <form>
+        <div class="form-group">
+          <label for="diameter">Diamètre des roues</label>
+          <div class="input-group">
+            <input id="diameter" class="form-control">
+          </div>
+          <label for="spacing">Entraxe des roues</label>
+          <div class="input-group">
+            <input id="spacing" class="form-control">
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div>
+  
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Enregistrer</button>
   </div>
