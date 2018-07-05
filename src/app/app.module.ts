@@ -11,7 +11,7 @@ import { InfoCommandesComponent } from './info-commandes/info-commandes.componen
 import { SvgCanvasComponent } from './svg-canvas/svg-canvas.component';
 import { DeviceComponent } from './device/device.component';
 import { DeviceService } from './device/device.service';
-import { NgbdModalBasic } from './device/modal-device';
+import { NgbdModalBasic } from './device/modal-device'; 
 
 
 @NgModule({
