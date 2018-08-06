@@ -1,17 +1,33 @@
-<div id="list-device-container" class="container">
-	<div class="row">
-		<h4>Liste objects connectés</h4>
-	</div>
-	<div class="row">
-		<button type="button" class="btn" (click)="onScan()">Recherche ...</button> 
-	</div>
-	<div class="row">
-		<ul class="list-group">
-			<li *ngFor="let device of devices" class="list-group-item">
-				<!-- <div class="row"> -->
+<div id="list-device-container" class="container" >
+	<button type="button" class="btn" aria-controls="collapseListDevice"
+		(click)="isCollapsed = !isCollapsed" 
+		[attr.aria-expanded]="!isCollapsed">
+		<ng-container
+		  *ngIf="isCollapsed; then unfold; else fold">
+		</ng-container>
+		<ng-template #unfold>
+		  <img src="../assets/plus.svg" height="10px">
+		</ng-template>
+		<ng-template #fold>
+		  <img src="../assets/minus.svg" height="10px">
+		</ng-template>
+	</button>
+	<div   [ngbCollapse]="isCollapsed" class="collapseListDevice">
+		<div class="row">
+				<h4>Liste objects connectés</h4>
+		</div>
+		<div class="row">
+			<button type="button" class="btn" (click)="onScan()">Recherche ...</button> 
+		</div>
+		<div class="row">
+			<ul class="list-group">
+				<li *ngFor="let device of devices" 
+					[ngClass]="{'active': selectedDevice == device}"
+					(click)="listClick($event, device)"
+					class="list-group-item">
 					<app-device [device]="device"></app-device>
-				<!-- </div> -->
-			</li>
-		</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

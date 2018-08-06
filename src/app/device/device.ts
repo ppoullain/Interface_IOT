@@ -4,7 +4,7 @@ export enum Connection_Type {
 	Other = 0
 }
 export class Connection {
-	  type:Connection_Type;
+	type:Connection_Type;
   	connected:boolean;
   	img:string;
 }

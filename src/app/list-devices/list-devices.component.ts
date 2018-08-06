@@ -8,7 +8,8 @@ import { DeviceService} from '../device/device.service';
   styleUrls: ['./list-devices.component.css']
 })
 export class ListDevicesComponent implements OnInit {
-  	devices:Device[] ;
+    devices:Device[] ;
+    selectedDevice:Device;
     public isCollapsed = false;
   	constructor(private deviceService:DeviceService) { }
 
@@ -18,9 +19,15 @@ export class ListDevicesComponent implements OnInit {
     onScan(){
       this.devices = [];
       setTimeout(
-      () => {
-        this.devices = this.deviceService.devices;
-      }, 1500
-    );
+        () => {
+          this.devices = this.deviceService.devices;
+        }, 1500
+      );
     }
+
+    listClick(event, newValue) {
+      console.log(newValue);
+      this.selectedDevice = newValue;  // don't forget to update the model here
+     
+    } 
 }

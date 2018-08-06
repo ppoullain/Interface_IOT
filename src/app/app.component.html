@@ -4,33 +4,13 @@
     {{ title }}
   </h1>
 </div>
-
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <!-- Left Panel -->
-    <div class="col-1">
-      <button type="button" class="btn" aria-controls="collapseExample"
-      (click)="isCollapsed = !isCollapsed" 
-      [attr.aria-expanded]="!isCollapsed">
-      <ng-container
-        *ngIf="isCollapsed; then unfold; else fold">
-      </ng-container>
-      <ng-template #unfold>
-        <img src="../assets/plus.svg" height="10px">
-      </ng-template>
-      <ng-template #fold>
-        <img src="../assets/minus.svg" height="10px">
-      </ng-template>
-      </button>
+    <div class="col-4">
+      <app-list-devices></app-list-devices>
     </div>
-    <div id="collapseExample" class="col-sm-11 col-md-4" [ngbCollapse]="isCollapsed">
-        <app-list-devices></app-list-devices>
+    <div class="col">
+      <app-tab-layout></app-tab-layout>
     </div>
-
-    <!-- Main (center) Panel -->
-    <div class="col-sm-12 col-md-7">
-      <app-bezier></app-bezier>
-    </div>
-
   </div>
 </div>
