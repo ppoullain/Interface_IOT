@@ -1,0 +1,21 @@
+<button (click)="randomize()" type="button" class="btn">Random</button> 
+<svg id="canvas" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="200px">
+	<g>
+	</g>
+</svg>
+<div>
+  <p> 
+  	Approximation de la courbe par arcs de Cercle.<br/>
+  	Nombre d'arcs de cercle : 
+  	<input type="number" min="1" max="20" value="1" class="slider" id="myRange" [(ngModel)]="nb_arc" (change)="draw()">
+  </p>
+  <label> Afficher les arcs de cercles : </label>
+	<input type="checkbox" [checked]="disp_arc" (change)="disp_arc = !disp_arc; draw()" />
+  <button (click)="cmd_robot()" type="button" class="btn">Générer commandes robot</button> 
+
+  <div class="row">
+    <textarea [(ngModel)]="str_cmd" type="text" class="col-sm-8" rows="5"></textarea>
+    <button type="button" class="btn col-sm-4 disabled">Envoyer</button>
+  </div>
+
+</div>

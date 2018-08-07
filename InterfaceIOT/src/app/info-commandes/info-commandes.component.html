@@ -1,0 +1,25 @@
+<div>
+	<h2>Liste des commandes acceptées par {{ device_name }}</h2>
+	<ul>
+		<li>
+			<p>Faire une ligne : vers l'avant/l'arrière : distance (en mm) : delais (en µs) entre pas des moteurs <br/>
+				Exemple : <br/>
+					D:1:100:1000 (Avancer de 100 mm)<br/>
+					D:-1:50 (Reculer de 50 mm)
+			</p>
+		</li>
+		<li>
+			<p>Faire un arc de cercle : vers l'avant/l'arrière : distance (en mm) : vers la droite/la gauche : rayon (en mm) : angle (en degré) : delais (en µs) entre pas des moteurs <br/>
+				Exemple : <br/>
+					T:1:1:85:30:1000 (Réalise un arc de cercle de rayon 85 mm et d'angle 30° en avançant et en tournant vers la droite)<br/>
+					T:-1:2:0:180 (Demi tour vers gauche)
+			</p>
+		</li>
+		<li>
+			<p>Lever le crayon (UP)</p>
+		</li>
+		<li>
+			<p>Baisser le crayon (Down)</p>
+		</li>
+	</ul>
+</div>
